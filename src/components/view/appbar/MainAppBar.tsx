@@ -12,8 +12,9 @@ const MainAppBar: React.FC<RouteComponentProps> = ({ history }) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuItemClick = (): void => {
-    setAnchorEl(null);
+  const handleMenuItemClick = (item: string): any => {
+    history.push(item)
+    closeNavigationMenu();
   };
 
   const closeNavigationMenu = (): void => {
@@ -22,7 +23,7 @@ const MainAppBar: React.FC<RouteComponentProps> = ({ history }) => {
 
   return (
     <div>
-      <Grid container>
+      <Grid container justify='center'>
         <Grid item xs={11}>
           <Typography>Banducci Enterprises</Typography>
         </Grid>
@@ -37,11 +38,11 @@ const MainAppBar: React.FC<RouteComponentProps> = ({ history }) => {
             open={Boolean(anchorEl)}
             onBackdropClick={closeNavigationMenu}
           >
-            {Object.keys(Navigation).map(item => (
+            {Object.values(Navigation).map(item => (
               <MenuItem
-                onClick={handleMenuItemClick}
+                onClick={() => handleMenuItemClick(item)}
               >
-                {item}
+                {item.toUpperCase()}
               </MenuItem>
             ))}
           </Menu>

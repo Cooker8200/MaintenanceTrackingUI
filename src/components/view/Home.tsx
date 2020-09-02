@@ -4,7 +4,9 @@ import MainAppBar from './appbar/MainAppBar';
 const Home: React.FC = () => (
   <div>
     <MainAppBar />
-    Content here...
+    <div>
+      Content here...
+    </div>
   </div>
 );
 
