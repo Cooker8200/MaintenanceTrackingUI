@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Routes from './components/view/Routes';
+import './styles/styles.scss';
 
 ReactDOM.render(
   <Routes />,
