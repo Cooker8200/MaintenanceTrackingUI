@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Navigation } from '../../../constants/Navigation';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
+import NavigationBreadcrumbs from './NavigationBreadcrumbs';
 
 const MainAppBar: React.FC<RouteComponentProps> = ({ history }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -49,7 +50,7 @@ const MainAppBar: React.FC<RouteComponentProps> = ({ history }) => {
         </Grid>
         {!window.location.pathname.includes('/home') &&
           <Grid item xs={12}>
-            Insert Breadcrumbs here
+            <NavigationBreadcrumbs />
           </Grid>
         }
       </Grid>
