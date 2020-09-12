@@ -1,10 +1,8 @@
 import * as React from 'react';
-import { Autocomplete } from '@material-ui/lab';
-import { TextField } from '@material-ui/core';
+import { Select, MenuItem } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
-import { IKeyValue } from '../../../interfaces/IKeyValue';
 
-const RecordsDropDown: React.FC = () => {
+const RecordsDropDown: React.FC<IRecordsDropDownProps> = ({ history }) => {
   const options = [
     {
       key: 'maintenance',
@@ -20,16 +18,31 @@ const RecordsDropDown: React.FC = () => {
     },
   ];
 
+  const handleChange = (event: React.ChangeEvent<any>) => {
+    const path = event.target.value === 'hepa' ? 'hep-a' : event.target.value;
+    history.push(path);
+  };
+
   return (
-    <Autocomplete
-      options={options}
-      getOptionLabel={(option) => option.value}
-      className='records-drop-down_autocomplete'
+    <Select
+      onChange={handleChange}
       style={{ width: '350px' }}
-      renderInput={(params) => <TextField {...params} />}
-      onChange={() => console.log('you selected: ')}
-    />
+      placeholder='What do you want to manage today?'
+    >
+      {options.map(item => (
+        <MenuItem
+          key={item.key}
+          value={item.key}
+        >
+          {item.value}
+        </MenuItem>
+      ))}
+    </Select>
   );
+};
+
+interface IRecordsDropDownProps {
+  history: any;
 };
 
 export default withRouter(RecordsDropDown);

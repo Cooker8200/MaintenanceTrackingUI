@@ -9,8 +9,16 @@ const Home: React.FC = () => {
   return (
     <div>
       <MainAppBar />
-      <Grid container justify='center' alignContent='center' alignItems='center' direction='column'>
-        <Grid item xs={12}>
+      <Grid
+        container
+        justify='center'
+        alignContent='center'
+        alignItems='center'
+        direction='column'
+        spacing={10}
+        className='home_container'
+      >
+        <Grid item xs={12} className='home_title'>
           <Typography variant='h3' className='home_main-title'>
             Banducci Enterprises
           </Typography>

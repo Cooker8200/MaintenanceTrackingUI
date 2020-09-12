@@ -6,7 +6,13 @@ import NavigationBreadcrumbs from './NavigationBreadcrumbs';
 const MainAppBar: React.FC<RouteComponentProps> = ({ history }) => {
   return (
     <div>
-      <Grid container alignContent='flex-start' alignItems='center' spacing={2}>
+      <Grid
+        container
+        alignContent='flex-start'
+        alignItems='center'
+        spacing={2}
+        className='main-app-bar_container'
+      >
         <Grid item>
           img...
         </Grid>

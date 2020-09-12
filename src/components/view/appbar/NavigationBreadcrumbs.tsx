@@ -6,7 +6,7 @@ const NavigationBreadcrumbs = () => {
     <Breadcrumbs>
       {window.location.pathname.split('/').slice(1).map(path => (
         <Link
-          href={path === 'banducci-enterprises' ? 'banducci-enterprises/home' : path}
+          href={path === 'banducci-enterprises' ? 'home' : path}
         >
           {path === 'banducci-enterprises' ? 'home' : path}
         </Link>
