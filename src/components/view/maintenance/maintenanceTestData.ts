@@ -1,4 +1,6 @@
-export const maintenanceData = [
+import { IMaintenanceRecord } from "../../../interfaces/IMaintenanceRecord";
+
+export const maintenanceData: IMaintenanceRecord[] = [
   {
     repairType: 'Filters change',
     repairDate: '1/1/2021',
@@ -11,7 +13,7 @@ export const maintenanceData = [
     repairType: 'Grill Certification',
     repairDate: '2/1/2021',
     cost: '250',
-    paid: true,
+    paid: false,
     vendor: 'Midwest Equipment',
     equipment: 'Grill 1'
   },
