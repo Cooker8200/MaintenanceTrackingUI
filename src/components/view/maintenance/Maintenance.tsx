@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { maintenanceData } from './maintenanceTestData';
 import { TableBody, Table, TableCell, TableContainer, TableHead, TableRow, Typography } from '@material-ui/core';
 import { IMaintenanceRecord } from '../../../interfaces/IMaintenanceRecord';
+import Title from '../utils/Title';
 
 const Maintenance: React.FC = () => {
   const [initializing, setInitializing] = useState<boolean>(true);
@@ -19,14 +20,10 @@ const Maintenance: React.FC = () => {
   }
 
   const renderTitle = () => (
-    <>
-      <Typography variant='h4' className='maintenance_body-container'>
-        Maintenance Records
-      </Typography>
-      <Typography variant='subtitle1'>
-        View maintenance records below.
-      </Typography>
-    </>
+    <Title
+      title={'Maintenance Records'}
+      subtitle={'View maintenance records below.'}
+    />
   );
 
   const renderMaintenanceRecords = () => (

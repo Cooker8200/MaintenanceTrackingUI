@@ -3,7 +3,7 @@ import Home from './Home';
 import NotFound from './NotFound';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Maintenance from './maintenance/Maintenance';
-import Servsafe from './servsafe/Servsafe';
+import Servsafe from './servsafe/ServeSafe';
 import HepA from './hep_a/HepA';
 
 const Routes: React.FC = (): React.ReactElement => (
