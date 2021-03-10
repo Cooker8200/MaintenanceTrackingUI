@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { IHepARecord } from '../../../interfaces/IHepARecord';
 import MainAppBar from '../appbar/MainAppBar';
+import Title from '../utils/Title';
 import { hepAData } from './hepATestData';
 
 const HepA: React.FC = () => {
