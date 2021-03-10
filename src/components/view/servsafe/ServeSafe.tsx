@@ -4,6 +4,7 @@ import { IServeSafeRecord } from '../../../interfaces/IServeSafeRecord';
 import MainAppBar from '../appbar/MainAppBar';
 import { serveSafeData } from './serveSafeTestData';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@material-ui/core';
+import Title from '../utils/Title';
 
 const ServeSafe: React.FC = () => {
   const [initializing, setInitializing] = useState<boolean>(true);
