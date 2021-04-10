@@ -4,11 +4,12 @@ import { Breadcrumbs, Link } from '@material-ui/core';
 const NavigationBreadcrumbs = () => {
   return (
     <Breadcrumbs>
+      <Link href='/home'>home</Link>
       {window.location.pathname.split('/').slice(1).map(path => (
         <Link
-          href={path === 'banducci-enterprises' ? 'home' : path}
+          href={path}
         >
-          {path === 'banducci-enterprises' ? 'home' : path}
+          {path}
         </Link>
       ))}
     </Breadcrumbs>
