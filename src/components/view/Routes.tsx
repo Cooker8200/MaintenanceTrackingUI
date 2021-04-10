@@ -7,7 +7,7 @@ import Servsafe from './servsafe/ServeSafe';
 import HepA from './hep_a/HepA';
 
 const Routes: React.FC = (): React.ReactElement => (
-  <BrowserRouter basename='banducci-enterprises'>
+  <BrowserRouter>
     <div>
       <Switch>
         <Route
