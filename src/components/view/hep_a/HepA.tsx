@@ -1,22 +1,21 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IHepARecord } from '../../../interfaces/IHepARecord';
+import { getAllEmployeeRecords } from '../../actions/EmployeeActions';
 import MainAppBar from '../appbar/MainAppBar';
 import Title from '../utils/Title';
 import { hepAData } from './hepATestData';
 
 const HepA: React.FC = () => {
-  const [initializing, setInitializing] = useState<boolean>(true);
-  const [initialized, setInitialized] = useState<boolean>(false)
   const [hepARecords, setHepARecords] = useState<IHepARecord[]>([]);
 
-  if (initializing === true && initialized === false) {
+  useEffect(() => {
+    getAllEmployeeRecords()
+      .then(x => console.log('results: ', x));
     // TODO: get data from api/database;
     setHepARecords(hepAData)
-    setInitializing(false);
-    setInitialized(true)
-  }
+  }, []);
 
   const renderTitle = () => (
     <Title
