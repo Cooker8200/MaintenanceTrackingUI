@@ -12,3 +12,4 @@ export const getAllEmployeeRecords = async (): Promise<any> => {
     console.error(error);
   })
 };
+

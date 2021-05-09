@@ -10,13 +10,28 @@ const HepA: React.FC = () => {
   const [hepARecords, setHepARecords] = useState<IHepARecord[]>([]);
 
   useEffect(() => {
-    getRecords();
-    // getAllEmployeeRecords().then(data => setHepARecords(data));
-    // setHepARecords(hepAData)
+    getAllEmployeeRecords().then(data => setHepARecords(convertToHepARecord(data)));
   }, []);
 
-  const getRecords = async () => {
-    getAllEmployeeRecords().then(data => setHepARecords(data));
+  const getDateDifference = (dateOne: string, dateTwo: string) => {
+    return 30;
+  };
+
+  const isInCompliance = (firstShot: string, secondShot: string) => {
+    if (firstShot === undefined || secondShot === undefined) return false;
+    if (getDateDifference(firstShot, secondShot) < 6) return true;
+    else return false;
+  };
+
+  const convertToHepARecord = (data: any) => {
+    return data.map((item: any) => ({
+      firstName: item.firstName,
+      lastName: item.lastName,
+      fullName: item.firstName + ' ' + item.lastName,
+      firstShot: item.firstHepA,
+      secondShot: item.secondHepA,
+      inCompliance: isInCompliance(item.firstHepA, item.secondHepA),
+    }))
   };
 
   const renderTitle = () => (
@@ -41,8 +56,8 @@ const HepA: React.FC = () => {
           {hepARecords.map((record: IHepARecord) => (
             <TableRow>
               <TableCell>{record.firstName + ' ' + record.lastName}</TableCell>
-              <TableCell>{record.firstHepA}</TableCell>
-              <TableCell>{record.secondHepA}</TableCell>
+              <TableCell>{record.firstShot}</TableCell>
+              <TableCell>{record.secondShot}</TableCell>
               <TableCell>{record.inCompliance ? 'Compliant' : 'Not Compliant'}</TableCell>
             </TableRow>
           ))}
