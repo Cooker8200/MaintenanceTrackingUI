@@ -11,11 +11,14 @@ const HepA: React.FC = () => {
   const [hepARecords, setHepARecords] = useState<IHepARecord[]>([]);
 
   useEffect(() => {
-    getAllEmployeeRecords()
-      .then(x => console.log('results: ', x));
-    // TODO: get data from api/database;
-    setHepARecords(hepAData)
+    getRecords();
+    // getAllEmployeeRecords().then(data => setHepARecords(data));
+    // setHepARecords(hepAData)
   }, []);
+
+  const getRecords = async () => {
+    getAllEmployeeRecords().then(data => setHepARecords(data));
+  };
 
   const renderTitle = () => (
     <Title
@@ -49,14 +52,19 @@ const HepA: React.FC = () => {
     </TableContainer>
   );
 
-  return (
-    <div>
-      <MainAppBar />
-      <br />
-      {renderTitle()}
-      {renderHepARecords()}
-    </div>
-  );
+  console.log(hepARecords);
+  if (hepARecords.length === 0) {
+    return <></>;
+  } else {
+    return (
+      <div>
+        <MainAppBar />
+        <br />
+        {renderTitle()}
+        {renderHepARecords()}
+      </div>
+    );
+  }
 };
 
 export default HepA;

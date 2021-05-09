@@ -1,16 +1,15 @@
-import { ApiUrl } from "../../constants/ApiUrl";
+import { ApiUrl } from '../../constants/ApiUrl';
+import { hepAData } from '../view/hep_a/hepATestData';
 
 export const getAllEmployeeRecords = async (): Promise<any> => {
-  await fetch(ApiUrl.getAllEmployees, {
+  return await fetch(ApiUrl.getAllEmployees, {
     method: 'GET',
     headers: {
       'x-api-key': 'Vl7xB9OrCtCGIPRnhPno96Phe9CvNl19Eh1KqY23',
     }
   })
-    .then(resp => {
-      resp.json().then(x => x);
-    })
-    .catch(error => {
-      console.error(error);
-    })
+  .then(response => response.json())
+  .catch(error => {
+    console.error(error);
+  })
 };
