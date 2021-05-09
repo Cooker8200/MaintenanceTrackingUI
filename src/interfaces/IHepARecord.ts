@@ -1,7 +1,7 @@
 export interface IHepARecord {
   firstName: string,
   lastName: string,
-  firstShot?: string,
-  secondShot?: string,
+  firstHepA?: string,
+  secondHepA?: string,
   inCompliance: boolean,
 };

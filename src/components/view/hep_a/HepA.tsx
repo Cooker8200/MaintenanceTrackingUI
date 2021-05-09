@@ -5,7 +5,6 @@ import { IHepARecord } from '../../../interfaces/IHepARecord';
 import { getAllEmployeeRecords } from '../../actions/EmployeeActions';
 import MainAppBar from '../appbar/MainAppBar';
 import Title from '../utils/Title';
-import { hepAData } from './hepATestData';
 
 const HepA: React.FC = () => {
   const [hepARecords, setHepARecords] = useState<IHepARecord[]>([]);
@@ -42,8 +41,8 @@ const HepA: React.FC = () => {
           {hepARecords.map((record: IHepARecord) => (
             <TableRow>
               <TableCell>{record.firstName + ' ' + record.lastName}</TableCell>
-              <TableCell>{record.firstShot}</TableCell>
-              <TableCell>{record.secondShot}</TableCell>
+              <TableCell>{record.firstHepA}</TableCell>
+              <TableCell>{record.secondHepA}</TableCell>
               <TableCell>{record.inCompliance ? 'Compliant' : 'Not Compliant'}</TableCell>
             </TableRow>
           ))}

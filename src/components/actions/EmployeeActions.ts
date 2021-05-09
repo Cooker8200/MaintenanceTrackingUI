@@ -1,5 +1,4 @@
 import { ApiUrl } from '../../constants/ApiUrl';
-import { hepAData } from '../view/hep_a/hepATestData';
 
 export const getAllEmployeeRecords = async (): Promise<any> => {
   return await fetch(ApiUrl.getAllEmployees, {
