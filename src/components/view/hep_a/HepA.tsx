@@ -2,7 +2,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { IHepARecord } from '../../../interfaces/IHepARecord';
-import { getAllEmployeeRecords } from '../../actions/EmployeeActions';
+import { getEmployeeRecords } from '../../actions/EmployeeActions';
 import MainAppBar from '../appbar/MainAppBar';
 import Title from '../utils/Title';
 
@@ -10,7 +10,7 @@ const HepA: React.FC = () => {
   const [hepARecords, setHepARecords] = useState<IHepARecord[]>([]);
 
   useEffect(() => {
-    getAllEmployeeRecords().then(data => setHepARecords(convertToHepARecord(data)));
+    getEmployeeRecords().then(data => setHepARecords(convertToHepARecord(data)));
   }, []);
 
   const getDateDifference = (dateOne: string, dateTwo: string) => {
